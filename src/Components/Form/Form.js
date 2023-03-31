@@ -1,8 +1,11 @@
 
 import React from 'react'
+// import { useNavigate } from 'react-router-dom';
+
+
 
 export const Form = () => {
-
+    // const navigate = useNavigate()
 const handleSubmit=(event)=>{
     event.preventDefault();
     const form = event.target;
@@ -13,7 +16,7 @@ const handleSubmit=(event)=>{
     const bookings = {
         name: name,
         instructor: instructor,
-        category: category,
+        category_name: category,
         price: price,
     }
     console.log(bookings)
@@ -29,7 +32,8 @@ const handleSubmit=(event)=>{
     .then(data => {
         console.log(data)
         if(data?.data.insertedId){
-
+            form.reset()
+            
         }
     })
 
@@ -37,8 +41,8 @@ const handleSubmit=(event)=>{
 }
 
   return (
-    <div className='w-1/2'> 
-        <div className='mt-10'>
+    <div className='w-full mt-24 shadow-xl p-10'> 
+        <div className=''>
         <h1 className='text-3xl font-bold '>Add Your Course</h1>
     <form onSubmit={handleSubmit}>
         <div className='mb-4'> 

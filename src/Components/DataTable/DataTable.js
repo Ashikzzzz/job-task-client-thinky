@@ -16,7 +16,7 @@ const {data: datas=[],refetch}=useQuery({
 console.log(datas)
 
   return (
-    <div className='w-full  mt-10'>
+    <div className='w-full  mt-24'>
         <div className="overflow-x-auto">
   <table className="table w-full">
 
