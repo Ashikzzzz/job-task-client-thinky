@@ -1,22 +1,23 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
+
 const DataTable = () => {
 
-const {data: datas=[],refetch}=useQuery({
+  // getting data from database 
+const {data: datas=[]}=useQuery({
     queryKey:["datas"],
     queryFn: async()=>{
         const uri ="http://localhost:5000/gettingData"
         const res = await fetch(uri)
         const data = res.json()
-    
         return data
     }
 })
 console.log(datas)
 
   return (
-    <div className='w-full  mt-24'>
+    <div className='w-full  mt-10'>
         <div className="overflow-x-auto">
   <table className="table w-full">
 
@@ -43,6 +44,7 @@ console.log(datas)
       }
     </tbody>
   </table>
+  
 </div>
     </div>
   )

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const ChackBox = () => {
 const [names,setNames]=useState([])
 
+// getting category name from database 
 useEffect(()=>{
     fetch("http://localhost:5000/categoryName")
     .then(res => res.json())
@@ -11,7 +12,7 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className='w-full p-10 bg-sky-100 min-h-screen mt-24' >
+    <div className='w-full p-10 bg-sky-100 rounded-lg mt-10' >
             {
                 names?.data?.map(name=>{
                     return <div className=" my-4 border-2 border-indigo-600 hover:border-gray-500">

@@ -14,10 +14,10 @@ export const router = createBrowserRouter([
                 path: '/',
                 element:<Home></Home>
             },
-        //  {
-        //     path: "/courses",
-        //     element: <DataTable></DataTable>
-        //  },
+        {
+            path: '/courses',
+            element: <DataTable></DataTable>
+        },
          {
             path: "/categoryName/:categoryName",
             element:<IndividualData></IndividualData>,

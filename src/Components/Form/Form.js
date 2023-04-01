@@ -1,11 +1,12 @@
 
-import React from 'react'
-// import { useNavigate } from 'react-router-dom';
-
-
+import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export const Form = () => {
-    // const navigate = useNavigate()
+    // const [course,setCourse]=useState(bookings)
+    const navigate = useNavigate()
+
 const handleSubmit=(event)=>{
     event.preventDefault();
     const form = event.target;
@@ -20,6 +21,8 @@ const handleSubmit=(event)=>{
         price: price,
     }
     console.log(bookings)
+
+    // data sending from client to db 
     
     fetch("http://localhost:5000/bookings",{
         method:"POST",
@@ -30,18 +33,23 @@ const handleSubmit=(event)=>{
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data?.data.insertedId){
             form.reset()
-            
+            navigate("/courses")
         }
+        
     })
+
+    
 
 
 }
 
+
+
   return (
-    <div className='w-full mt-24 shadow-xl p-10'> 
+    <div className='w-full h-1/2 rounded-xl mt-10 shadow-xl p-10'> 
         <div className=''>
         <h1 className='text-3xl font-bold '>Add Your Course</h1>
     <form onSubmit={handleSubmit}>
